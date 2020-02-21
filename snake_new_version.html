@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Snake</title>		
+	<link rel="icon" type="image" href="http://static.skaip.su/img/emoticons/180x180/f6fcff/snake.gif">
+	<script>
+		function  change_color(bg, fg) {
+			document.bgColor = bg;
+			document.fgColor = fg;
+		}
+		</script>
+	<link rel="stylesheet" type="text/css" href="dop.css">
+</head>
+<body bgcolor="ivory" onfocus="document.bgColor='ivory'" onblur="document.bgColor='gray'">
+	<canvas id="canvas" width="400" height="400"></canvas>
+
+	<script src="file/jquery.js"></script>
+	<script>
+		var canvas = document.getElementById("canvas");
+		var  ctx = canvas.getContext("2d");
+		var width = canvas.width;
+		var height = canvas.height;
+		//Делит поле на невидемые части
+		var blockSize = 10;
+		var widthInBlock = width / blockSize;
+		var heightInBlock = height / blockSize;
+		//Создаём переменую score(счёт)
+		var score = 0;
+
+		var q1 = function () {
+			document.write('Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error');
+			document.write('Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error');
+			document.write('Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error Error');
+			document.write('Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 Error 28032006 ')
+			document.write('Error 28032006 ');
+		}
+
+		//Рисуем граници
+		var drawBolder = function () {
+			ctx.fillStyle = "Gray";
+			ctx.fillRect(0, 0, width, blockSize);
+			ctx.fillRect(0, height - blockSize, width, blockSize);
+			ctx.fillRect(0, 0, blockSize, height);
+			ctx.fillRect(width - blockSize, 0, blockSize, height);
+		};
+		//Выводит счёт с определёным шрифтом, размеров и координатами
+		var drawScore = function () {
+			ctx.font = "20px Courier";
+			ctx.fillStyle = "Black";
+			ctx.textAlign = "left";
+			ctx.textBaseline = "top";
+			ctx.fillText("Счёт: " + score, blockSize, blockSize);
+		};
+		//Выводит надпись "Конец игры"
+		var gameOver = function () {
+			clearInterval(intervalId);
+			ctx.font = "60px Courier";
+			ctx.fillStyle = "Black";
+			ctx.textAlign = "center";
+			ctx.textBaseline = "middle";
+			ctx.fillText("Конец игры", width / 2, height / 2);
+		};
+		//Функция для рисования окружностей(будет рисовать яблоки потом)
+		var circle = function (x, y, radius, fillCircle) {
+ 			ctx.beginPath();
+ 			ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+ 			if (fillCircle) {
+ 				ctx.fill();
+ 			} else {
+ 				ctx.stroke();
+ 			}
+ 		};
+		//Проверка, потом удалить!!!!!!!!!!!
+		////drawScore();
+		////drawBolder();
+		//Конструктор Block
+		var Block = function (col, row) {
+			this.col = col;
+			this.row = row;
+		};
+		//Начало создания змейки
+		Block.prototype.drawSquare = function (color) {
+			var x = this.col * blockSize;
+			var y = this.row * blockSize;
+			ctx.fillStyle = color;
+			ctx.fillRect(x, y, blockSize, blockSize);
+		};
+		//Рисуем яблоко
+		Block.prototype.drawCircle = function (color) {
+			var centerX = this.col * blockSize + blockSize / 2;
+			var centerY = this.row * blockSize + blockSize / 2;
+			ctx.fillStyle = color;
+			circle(centerX, centerY, blockSize / 2, true);
+		};
+		//Проверка важных частей!
+		Block.prototype.equal = function (otherBlock) {
+			return this.col === otherBlock.col && this.row === otherBlock.row;
+		};
+		//Пишем конструктор Змейки
+		var Snake = function () {
+			this.segments = [
+				//Создаёт сегменты (ячейки) Змейки
+				new Block(7, 5),
+				new Block(6, 5),
+				new Block(5, 5)
+				];
+
+				this.direction = "right";
+				this.nextDirection = "right";
+		};
+		//Собираем Змейку\\
+		Snake.prototype.draw = function () {
+			for (var i = 0; i < this.segments.length; i++) {
+				this.segments[i].drawSquare("Blue");
+			}
+		};
+		//Coздадим новую голову и настраиваем условия
+		Snake.prototype.move = function () {
+			var head = this.segments[0];
+			var newHead;
+
+			this.direction = this.nextDirection;
+
+			if (this.direction === "right") {
+				newHead = new Block(head.col + 1, head.row);
+			} else if (this.direction === "down") {
+				newHead = new Block(head.col, head.row + 1);
+			} else if (this.direction === "left") {
+				newHead = new Block(head.col - 1, head.row);
+			} else if (this.direction === "up") {
+				newHead = new Block(head.col, head.row - 1);
+			}
+
+			if (this.checkCollission(newHead)) {
+				gameOver();
+				return;
+			}
+			this.segments.unshift(newHead);
+			if (newHead.equal(apple.position)) {
+				score++;
+				apple.move();
+			} else {
+				this.segments.pop();
+			}
+		};
+		//Проверяем, не столкнулась ли со стеной или собой Змейка
+		Snake.prototype.checkCollission = function (head) {
+			var leftCollission = (head.col === 0);
+			var topCollission = (head.row === 0);
+			var rightCollission = (head.col === widthInBlock - 1);
+			var bottonCollission = (head.row === heightInBlock - 1);
+
+			var wallCollision = leftCollission || topCollission || rightCollission || bottonCollission;
+
+			var selfCollision = false;
+
+			for (var i = 0; i < this.segments.length; i++) {
+				if (head.equal(this.segments[i])) {
+					selfCollision = true;
+				}
+			}
+
+			return wallCollision || selfCollision;
+		};
+		//Задаёт направление Змейки на основе нажатой клавиши
+		Snake.prototype.setDirection = function (nextDirection) {
+			if (this.direction === "up" && nextDirection === "down") {
+				return;
+			} else if (this.direction === "right" && nextDirection === "left") {
+				return;
+			} else if (this.direction === "down" && nextDirection === "up") {
+				return;
+			} else if (this.direction === "left" && nextDirection === "right") {
+				return;
+			}
+
+			this.nextDirection = nextDirection;
+		};
+
+		//Задаёт конструкцию "Яблоко"
+		var Apple = function () {
+			this.position = new Block(10, 10);
+		};
+		//Рисуем кружок в позиции Яблока
+		Apple.prototype.draw = function () {
+			this.position.drawCircle("LimeGreen");
+		};
+		//Перемещает яблоко в случайную позицию
+		Apple.prototype.move = function () {
+			var randomCol = Math.floor(Math.random() * (widthInBlock - 2)) + 1;
+			var randomRow = Math.floor(Math.random() * (heightInBlock - 2)) + 1;
+			this.position = new Block(randomCol, randomRow);
+		};
+		//Coздаёт змейку и яблоко
+		var snake = new Snake;
+		var apple = new Apple;
+
+		//Запускаем функцию анимации через setInterval
+		var intervalId = setInterval(function() {
+			ctx.clearRect(0, 0, width, height);
+			drawScore();
+			snake.move();
+			snake.draw();
+			apple.draw();
+			drawBolder();
+			if (score < 10) {
+				change_color('white', 'black');
+			} else if (score < 20) {
+				change_color('Green', 'black')
+			} else if (score < 30) {
+				change_color('GreenYellow', 'black')
+			} else if (score < 40) {
+				change_color('Aqua', 'black')
+			} else if (score < 50) {
+				change_color('Cyan', 'black')
+			} else if (score < 60) {
+				change_color('LightCyan', 'black')
+			} else if (score < 70) {
+				change_color('PaleTurquoise', 'black')
+			} else if (score < 80) {
+				change_color('Aquamarine', 'black')
+			} else if (score < 90) {
+				change_color('Turquoise', 'black')
+			} else if (score < 100) {
+				change_color('MediumTurquoise', 'black')
+			} else if (score < 110) {
+				change_color('Gold', 'black')
+			} else if (score < 120) {
+				change_color('SeaGreen', 'black')
+			} else if (score < 130) {
+				change_color('PaleGreen', 'black')
+			} else if (score < 140) {
+				change_color('MediumSpringGreen', 'black')
+			} else if (score < 150) {
+				change_color('SpringGreen', 'black')
+			} else if (score < 160) {
+				change_color('MediumSeaGreen', 'black')
+			} else if (score < 170) {
+				change_color('ForestGreen', 'black')
+			} else if (score < 180) {
+				change_color('LemonChiffon', 'black')
+			} else if (score < 190) {
+				change_color('Green', 'black')
+			} else if (score < 200) {
+				change_color('GreenYellow', 'black')
+			} else if (score < 210) {
+				change_color('Aqua', 'black')
+			} else if (score < 220) {
+				change_color('Cyan', 'black')
+			} else if (score < 230) {
+				change_color('LightCyan', 'black')
+			} else if (score < 240) {
+				change_color('PaleTurquoise', 'black')
+			} else if (score < 250) {
+				change_color('Aquamarine', 'black')
+			} else if (score < 260) {
+				change_color('Turquoise', 'black')
+			} else if (score < 270) {
+				change_color('MediumTurquoise', 'black')
+			} else if (score < 280) {
+				change_color('PowderBlue', 'black')
+			} else if (score < 290) {
+				change_color('Gold', 'black')
+			} else if (score < 300) {
+				change_color('SeaGreen', 'black')
+			} else if (score < 310) {
+				change_color('PaleGreen', 'black')
+			} else if (score < 320) {
+				change_color('MediumSpringGreen', 'black')
+			} else if (score < 330) {
+				change_color('SpringGreen', 'black')
+			} else if (score < 340) {
+				change_color('MediumSeaGreen', 'black')
+			} else if (score < 350) {
+				change_color('ForestGreen', 'black')
+			} else if (score < 360) {
+				change_color('LemonChiffon', 'black')
+			} else if (score < 370) {
+				change_color('Green', 'black')
+			} else if (score < 380) {
+				change_color('GreenYellow', 'black')
+			} else if (score < 390) {
+				change_color('Aqua', 'black')
+			} else if (score < 400) {
+				change_color('Cyan', 'black')
+			} else if (score < 410) {
+				change_color('LightCyan', 'black')
+			} else if (score < 420) {
+				change_color('PaleTurquoise', 'black')
+			} else if (score < 430) {
+				change_color('Aquamarine', 'black')
+			} else if (score < 440) {
+				change_color('Turquoise', 'black')
+			} else if (score < 450) {
+				change_color('MediumTurquoise', 'black')
+			} else if (score < 460) {
+				change_color('PowderBlue', 'black')
+			} else if (score < 470) {
+				change_color('Gold', 'black')
+			} else if (score < 480) {
+				change_color('SeaGreen', 'black')
+			} else if (score < 490) {
+				change_color('PaleGreen', 'black')
+			} else if (score < 500) {
+				change_color('MediumSpringGreen', 'black')
+			} else if (score < 510) {
+				change_color('SpringGreen', 'black')
+			} else if (score < 520) {
+				change_color('MediumSeaGreen', 'black')
+			} else if (score < 530) {
+				change_color('ForestGreen', 'black')
+			} else if (score < 540) {
+				change_color('LemonChiffon', 'black')
+			} else if (score < 550) {
+				change_color('Green', 'black')
+			} else if (score < 560) {
+				change_color('GreenYellow', 'black')
+			} else if (score < 570) {
+				change_color('Aqua', 'black')
+			} else if (score < 580) {
+				change_color('Cyan', 'black')
+			} else if (score < 590) {
+				change_color('LightCyan', 'black')
+			} else if (score < 600) {
+				change_color('PaleTurquoise', 'black')
+			} else if (score < 610) {
+				change_color('Aquamarine', 'black')
+			} else if (score < 620) {
+				change_color('Turquoise', 'black')
+			} else if (score < 630) {
+				change_color('MediumTurquoise', 'black')
+			} else if (score < 640) {
+				change_color('PowderBlue', 'black')
+			} else if (score < 650) {
+				change_color('Gold', 'black')
+			} else if (score < 660) {
+				change_color('SeaGreen', 'black')
+			} else if (score < 670) {
+				change_color('PaleGreen', 'black')
+			} else if (score < 680) {
+				change_color('MediumSpringGreen', 'black')
+			} else if (score < 690) {
+				change_color('SpringGreen', 'black')
+			} else if (score < 700) {
+				change_color('MediumSeaGreen', 'black')
+			} else {
+				q1();
+			}
+		}, 100);
+		//Преобразует коды клавиш в направления
+		var directions = {
+			37: "left",
+			38: "up",
+			39: "right",
+			40: "down"
+		};
+		//Задаёт обработчик событий клавиш-стрелок!\\
+		$("body").keydown(function (event) {
+			var nextDirection = directions[event.keyCode];
+			if (nextDirection !== undefined) {
+				snake.setDirection(nextDirection);
+			}
+		});
+
+
+	</script>
+	<div>
+	<a href='snake_new_version.html'><button>Начать игру заново</button></a>
+	<h3>Кнопки для тестирования(+ очки)</h3>
+	<button onclick="javascript: score += 1;">+1</button>
+	<button onclick="javascript: score += 5;">+5</button>
+	<button onclick="javascript: score += 10;">+10</button>
+
+	<button onclick="javascript: score += 50;">+50</button>
+	<button onclick="javascript: score += 100;">+100</button>
+	<button onclick="javascript: score += 1000;">+1000</button>
+
+	<br>
+	<button onclick="javascript: score -= 1;">- 1</button>
+	<button onclick="javascript: score -= 5;">- 5</button>
+	<button onclick="javascript: score -= 10;">- 10</button>
+
+	<button onclick="javascript: score -= 50;">- 50</button>
+	<button onclick="javascript: score -= 100;">- 100</button>
+	<button onclick="javascript: score -= 1000;">- 1000</button>
+
+	<br><br><input type="text" value="Введите ваше имя...">
+	<br><br><embed src="file/sound.mp3" autostart='True' loop='True'>
+	</embed>
+</body>
+</html>
