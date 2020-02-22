@@ -16,6 +16,7 @@
 	<canvas id="canvas" width="400" height="400"></canvas>
 
 	<script src="file/jquery.js"></script>
+	<script src="file/like.js"></script>
 	<script>
 		var canvas = document.getElementById("canvas");
 		var  ctx = canvas.getContext("2d");
@@ -384,8 +385,9 @@
 	<button onclick="javascript: score -= 50;">- 50</button>
 	<button onclick="javascript: score -= 100;">- 100</button>
 	<button onclick="javascript: score -= 1000;">- 1000</button>
-	<br><a href='resume.html'>Посмотреть резюме создателя игры</a>
+	<br><br><a href='resume.html'>Посмотреть резюме создателя игры</a>
 	<br><br><embed src="file/sound.mp3" autostart='True' loop='True'></embed>
+	<br><button class="heart"><span class="likes-number"></span></button>
 	</div>
 </body>
 </html>
