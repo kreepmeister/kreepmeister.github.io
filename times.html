@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Время</title>
+<link rel="icon" type="image" href="photohtml.png">
+</head>
+<body>
+<p name='clock' id="clock" align='center' style="border: thin dotted black;"></p>
+<script>
+days = new Array('Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');
+months = new Array('Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря');
+today = new Date();
+clock.innerHTML = today.getHours() + ((today.getHours()<10) ? "0:" : ":") + ((today.getMinutes()<10) ? "0" : "") + today.getMinutes() + "<br>";
+clock.innerHTML += (days[today.getDay()] + "<br>");
+clock.innerHTML += (today.getDate() + " " + months[today.getMonth()]);
+</script>
+</body>
+</html>
