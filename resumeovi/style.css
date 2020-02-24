@@ -70,6 +70,6 @@ h2 {
 }
 .fa-github:hover {
   color: gray;
-  transform: scale(1,2);
+  transform: scale(1.2);
 }
 /* END */
