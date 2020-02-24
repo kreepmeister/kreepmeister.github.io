@@ -44,6 +44,22 @@ h2 {
 .fa:hover {
   color: blue;
 }
+
+
+.fab {
+    display: inline-block;
+    font: normal normal normal 10px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fab:hover {
+  color: blue;
+}
+
+
+
 .fa-github {
   display: inline-block;
     font: normal normal normal 10px/1 FontAwesome;
