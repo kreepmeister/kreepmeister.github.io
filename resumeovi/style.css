@@ -44,7 +44,7 @@ h2 {
 .fa:hover {
   color: blue;
 }
-.seti {
+.fa-github {
   display: inline-block;
     font: normal normal normal 10px/1 FontAwesome;
     font-size: 30px;
@@ -52,7 +52,7 @@ h2 {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.seti:hover {
+.fa-github:hover {
   color: gray;
   transform: scale(1,2);
 }
