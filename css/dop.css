@@ -21,8 +21,9 @@ button:hover {
 }
 
 div {
-	float: right;
-	margin-left: 1px;
+	display: inline-block;
+	margin-left: 10px;
+	matgin-top: 10px;
 }
 embed {
 	background-color: white;
