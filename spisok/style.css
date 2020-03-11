@@ -32,6 +32,7 @@ body {
   padding: 20px 16px;
   background-color: #ffffff;
   color: #5c8bf0;
+  background-image: url("img/icon-change2.svg");
 }
 
 .todo-list li::before {
