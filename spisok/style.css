@@ -94,7 +94,6 @@ body {
   padding: 12px 22px 12px 44px;
   color: #5c8bf0;
   background-color: transparent;
-  background-image: url("img/icon-change1.svg");
 }
 
 .todo-priority::before {
