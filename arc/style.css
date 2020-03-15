@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 8px;
+    cursor: none !important;
+}
+
+#field {
+    width: 322px;
+    height: 270px;
+    padding-top: 30px;
+    border: 1px solid #ccc;
+    font-size: 0;
+    position: relative;
+}
+
+.brick,
+.removed {
+    width: 28px;
+    height: 10px;
+    margin: 1px;
+    display: inline-block;
+    border: 1px solid;
+}
+
+.brick {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdd), color-stop(100%, #777));
+    background: -webkit-linear-gradient(top,  #cdd 0%, #777 100%);
+    background: linear-gradient(to bottom,  #cdd 0%, #777 100%);
+    border-color: #777 #777 #000 #000;
+    border-radius: 3px;
+}
+
+.brick:nth-child(2n) {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc), color-stop(100%, #777));
+    background: -webkit-linear-gradient(top,  #ccc 0%, #777 100%);
+    background: linear-gradient(to bottom,  #ccc 0%, #777 100%);
+}
+
+.brick:nth-child(5n) {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc), color-stop(100%, #008));
+    background: -webkit-linear-gradient(top,  #ccc 0%, #008 100%);
+    background: linear-gradient(to bottom,  #ccc 0%, #008 100%);
+}
+
+.brick:nth-child(3n) {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc), color-stop(100%, #080));
+    background: -webkit-linear-gradient(top,  #ccc 0%, #080 100%);
+    background: linear-gradient(to bottom,  #ccc 0%, #080 100%);
+}
+
+.brick:nth-child(7n) {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc), color-stop(100%, #808));
+    background: -webkit-linear-gradient(top,  #ccc 0%, #808 100%);
+    background: linear-gradient(to bottom,  #ccc 0%, #808 100%);
+}
+
+.brick:nth-child(11n) {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc), color-stop(100%, #880));
+    background: -webkit-linear-gradient(top,  #ccc 0%, #880 100%);
+    background: linear-gradient(to bottom,  #ccc 0%, #880 100%);
+}
+
+.removed {
+    border-color: transparent;
+}
+
+#paddle {
+    width: 62px;
+    height: 5px;
+    border: 1px solid #777;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdd), color-stop(100%, #777));
+    background: -webkit-linear-gradient(top,  #cdd 0%, #777 100%);
+    background: linear-gradient(to bottom,  #cdd 0%, #777 100%);
+    position: absolute;
+    left: 128px;
+    top: 270px;
+    border-radius: 3px;
+}
+
+#ball {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #955;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdd), color-stop(100%, #500));
+    background: -webkit-linear-gradient(top,  #fdd 0%, #500 100%);
+    background: linear-gradient(to bottom,  #fdd 0%, #500 100%);
+    border-radius: 50%;
+    position: absolute;
+}
+
+#lifesNode,
+#scoreNode {
+    position: absolute;
+    right: -85px;
+    font: 14px arial, helvetica, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1px 0;
+    width: 75px;
+    text-align: center;
+}
+
+#lifesNode {
+    top: 20px;
+}
+
+#lifesNode:before {
+    content: 'lifes: ';
+}
+
+#scoreNode {
+    top: 50px;
+}
+
+#scoreNode:before {
+    content: 'score: ';
+}
