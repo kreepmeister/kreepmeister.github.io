@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Форум</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <section class="comment-feed container">
+          <h2>Cooбщения:</h2>
+          <ol class="comment-list">
+            <li class="user-comment">Evgeni: Хочу!!!</li>
+            <li class="user-comment">Gena: Я играл в <a href="https://kreepmeister.github.io" target="_blank">Змейку</a> - это офигенно!</li>
+            <li class="user-comment">Art: Я готов купить!</li>
+            <li class="user-comment adm">Admin: Минумум 200 рублей)</li>
+            <li class="user-comment adm">Admin: Пасхалка для компа: <a href="https://kreepmeister.github.io/arc" target="_blank">Арканоид</a>)</li>
+          </ol>
+          <form action="https://kreepmeister.github.io" method="post" class="comment-form">
+            <div class="comment-inner">
+              <textarea class="comment-field comment-area" rows="2" placeholder="Пользователь:Комментарий" required id="comment-textarea"></textarea>
+            </div>
+            <button class="button submit-button" type="submit">Отправить</button>
+          </form>
+    </section>
+    <button class="heart" type="button">Like: <span class="likes-number">297</span></button>
+    <script src="js/likes.js"></script>
+    <script src="js/comments.js"></script>
+    <script src="js/tooltip.js"></script>
+</body>
+</html>
