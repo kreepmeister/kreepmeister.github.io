@@ -17,13 +17,14 @@
 .html-chat-js-answer a{ color: #777;font-size: 12px; font-family: cursive;}
 .html-chat-js-answer a:hover{ color: #338;font-size: 12px; font-family: cursive;}
 .html-chat-msg{ margin: 0px; }
+a { display: none; }
 </style>
 
 <script>
     $(document).ready(function()
     {
        // Запуск api комет сервера
-       CometServer().start({dev_id: 13 })
+       CometServer().start({dev_id: 15 })
 
        // Запуск чата. Передаём ему элемент в котором надо создать окно чата.
        htmljs_Chat_Init( $("#html-chat") )
