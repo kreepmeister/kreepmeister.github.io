@@ -140,13 +140,11 @@ p {
 }
 
 .main {
-	width: 28%;
 	float: left;
 }
 
 .head {
 	margin-left: 10px;
-	width: 70%;
 	float: left;
 }
 main img {
