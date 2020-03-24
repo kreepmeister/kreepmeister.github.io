@@ -1,0 +1,156 @@
+html {
+
+}
+body {
+	background-color: #A9B8C2;
+}
+h1 {
+	font-size: 40px;
+
+}
+
+img {
+	text-align: center;
+	margin-top: 25px;
+	border-radius: 10%;
+}
+
+/*a {
+	float: right;
+	text-decoration: underline;
+	font-size: 15px;
+	margin: 5px;
+	cursor: pointer;
+}*/
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+
+h2 {
+	font-size: 25px;
+}
+
+.svg {
+	width: 45%;
+	height: auto;
+	border: 2px solid gray;
+	padding: 4px;
+	border-radius: 70%;
+	display: block;
+}
+.svg:hover {
+	border: 3px double black;
+	background-color: blue;
+}
+
+.svg-min {
+	width: 10%;
+	height: auto;
+	border: 2px solid gray;
+	padding: 4px;
+	border-radius: 70%;
+	display: inline-block;
+}
+
+p {
+	font-size: 18px;
+}
+
+.main {
+	width: 28%;
+	float: left;
+}
+
+.head {
+	margin-left: 10px;
+	width: 70%;
+	float: left;
+}
+main img {
+	width: 100%;
+	height: auto;
+}
+
+
+
+
+/*Для телефонов*/
+@media (max-width:480px) {
+	
+html {
+
+}
+body {
+	background-color: #A9B8C2;
+}
+h1 {
+	font-size: 40px;
+
+}
+
+img {
+	text-align: center;
+	margin-top: 25px;
+	border-radius: 10%;
+}
+
+/*a {
+	float: right;
+	text-decoration: underline;
+	font-size: 15px;
+	margin: 5px;
+	cursor: pointer;
+}*/
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+
+h2 {
+	font-size: 25px;
+}
+
+.svg {
+	width: 45%;
+	height: auto;
+	border: 2px solid gray;
+	padding: 4px;
+	border-radius: 70%;
+	display: block;
+}
+.svg:hover {
+	border: 3px double black;
+	background-color: blue;
+}
+
+.svg-min {
+	width: 10%;
+	height: auto;
+	border: 2px solid gray;
+	padding: 4px;
+	border-radius: 70%;
+	display: inline-block;
+}
+
+p {
+	font-size: 18px;
+}
+
+.main {
+	width: 28%;
+	float: left;
+}
+
+.head {
+	margin-left: 10px;
+	width: 70%;
+	float: left;
+}
+main img {
+	width: 100%;
+	height: auto;
+}
+}
