@@ -7,7 +7,6 @@ html {
 
 body {
 	border: 2px solid rgb(28,198,204);
-	text-align: center;
-	margin-top: 40%;
-	margin-botton: 40%;
+	margin: 40%;
+	pading: 10%;
 }
