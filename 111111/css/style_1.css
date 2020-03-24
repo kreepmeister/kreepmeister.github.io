@@ -58,7 +58,7 @@ p {
 	font-size: 18px;
 }
 
-.main {
+.main-comp {
 	width: 28%;
 	float: left;
 }
@@ -72,7 +72,7 @@ main img {
 	width: 100%;
 	height: auto;
 }
-.phone {
+.main-phone {
 	display: none;
 }
 
@@ -141,7 +141,7 @@ p {
 	font-size: 18px;
 }
 
-.main {
+.main-phone {
 	float: right;
 	display: inline-block;
 }
@@ -154,10 +154,10 @@ main img {
 	width: 100%;
 	height: auto;
 }
-.phone {
+.main-phon {
 	display: block;
 }
-.comp {
+.main-comp {
 	display: none;
 }
 }
