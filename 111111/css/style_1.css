@@ -155,7 +155,9 @@ main img {
 	height: auto;
 }
 .phone {
-	display: inline-block;
+	display: block;
 }
-
+comp {
+	display: none;
+}
 }
