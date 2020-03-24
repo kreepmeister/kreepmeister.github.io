@@ -117,12 +117,12 @@ h2 {
 }
 
 .svg {
-	width: 10%;
+	width: 5%;
 	height: auto;
 	border: 2px solid gray;
 	padding: 4px;
 	border-radius: 70%;
-	display: block;
+	display: inline-block;
 }
 .svg:hover {
 	border: 3px double black;
