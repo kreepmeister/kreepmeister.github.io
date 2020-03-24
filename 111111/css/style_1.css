@@ -86,7 +86,7 @@ body {
 	background-color: #A9B8C2;
 }
 h1 {
-	font-size: 40px;
+	font-size: 27px;
 
 }
 
@@ -114,12 +114,12 @@ h2 {
 }
 
 .svg {
-	width: 45%;
+	width: 100%;
 	height: auto;
 	border: 2px solid gray;
 	padding: 4px;
 	border-radius: 70%;
-	display: block;
+	display: inline-block;
 }
 .svg:hover {
 	border: 3px double black;
