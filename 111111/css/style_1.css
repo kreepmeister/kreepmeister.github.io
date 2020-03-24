@@ -116,12 +116,12 @@ h2 {
 }
 
 .svg {
-	width: 100%;
+	width: 10%;
 	height: auto;
 	border: 2px solid gray;
 	padding: 4px;
 	border-radius: 70%;
-	display: inline-block;
+	display: block;
 }
 .svg:hover {
 	border: 3px double black;
@@ -154,7 +154,7 @@ main img {
 	width: 100%;
 	height: auto;
 }
-.main-phon {
+.main-phone {
 	display: block;
 }
 .main-comp {
