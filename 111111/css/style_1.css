@@ -86,13 +86,13 @@ body {
 	background-color: #A9B8C2;
 }
 h1 {
-	font-size: 27px;
+	font-size: 40px;
 
 }
 
 img {
 	text-align: center;
-	margin-top: 25px;
+	margin-top: 30px;
 	border-radius: 10%;
 }
 
@@ -127,7 +127,7 @@ h2 {
 }
 
 .svg-min {
-	width: 10%;
+	width: 30%;
 	height: auto;
 	border: 2px solid gray;
 	padding: 4px;
@@ -140,7 +140,8 @@ p {
 }
 
 .main {
-	float: left;
+	float: right;
+	display: inline-block;
 }
 
 .head {
