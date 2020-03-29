@@ -1,0 +1,165 @@
+html {
+
+}
+body {
+	background-color: #A9B8C2;
+}
+h1 {
+	font-size: 40px;
+
+}
+
+img {
+	text-align: center;
+	margin-top: 25px;
+	border-radius: 10%;
+}
+
+/*a {
+	float: right;
+	text-decoration: underline;
+	font-size: 15px;
+	margin: 5px;
+	cursor: pointer;
+}*/
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+
+h2 {
+	font-size: 25px;
+}
+
+.svg {
+	width: 45%;
+	height: auto;
+	border: 2px solid gray;
+	padding: 4px;
+	border-radius: 70%;
+	display: block;
+}
+.svg:hover {
+	border: 3px double black;
+	background-color: blue;
+}
+
+.svg-min {
+	width: 10%;
+	height: auto;
+	border: 2px solid gray;
+	padding: 4px;
+	border-radius: 70%;
+	display: inline-block;
+}
+
+p {
+	font-size: 18px;
+}
+
+.main-comp {
+	width: 28%;
+	float: left;
+}
+
+.head {
+	margin-left: 10px;
+	width: 70%;
+	float: left;
+}
+main img {
+	width: 100%;
+	height: auto;
+}
+.main-phone {
+	display: none;
+}
+
+
+
+/*Для телефонов*/
+@media (max-width:500px) {
+	
+html {
+
+}
+body {
+	background-color: #A9B8C2;
+}
+h1 {
+	width: 100%;
+	font-size: 50px;
+
+}
+
+img {
+	text-align: center;
+	margin-top: 30px;
+	border-radius: 10%;
+}
+
+/*a {
+	float: right;
+	text-decoration: underline;
+	font-size: 15px;
+	margin: 5px;
+	cursor: pointer;
+}*/
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+
+h2 {
+	font-size: 25px;
+}
+
+.svg {
+	width: 15%;
+	height: auto;
+	border: 2px solid gray;
+	padding: 4px;
+	border-radius: 70%;
+	display: inline-block;
+}
+.svg:hover {
+	border: 3px double black;
+	background-color: blue;
+}
+
+.svg-min {
+	width: 30%;
+	height: auto;
+	border: 2px solid gray;
+	padding: 4px;
+	border-radius: 70%;
+	display: inline-block;
+}
+
+p {
+	font-size: 18px;
+}
+
+.main-phone {
+	float: right;
+	display: inline-block;
+}
+
+.head {
+	width: 100%;
+	margin-left: 10px;
+	float: left;
+}
+main img {
+	width: 100%;
+	height: auto;
+}
+.main-phone {
+	display: block;
+}
+.main-comp {
+	display: none;
+}
+}
