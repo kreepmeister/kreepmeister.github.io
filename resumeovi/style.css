@@ -1,15 +1,14 @@
 body {
   font-family: Georgia;
   font-size: 16px;
-  margin: 0 auto;   /* center content */
-  max-width: 800px; /* limit width */
+  margin: 0 auto; 
+  max-width: 800px; 
   line-height: 1.5;
   padding-top: 32px;
   padding-bottom: 32px;
 }
 
 
-/* BEGIN (write your solution here) */
 p {
   margin-bottom: 12px;
 }
@@ -33,7 +32,7 @@ h2 {
   margin-top: 64px;
   text-align: center;
 }
-.fa {
+i {
     display: inline-block;
     font: normal normal normal 10px/1 FontAwesome;
     font-size: inherit;
@@ -41,7 +40,7 @@ h2 {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.fa:hover {
+i:hover {
   color: blue;
 }
 
@@ -54,13 +53,10 @@ h2 {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.fab:hover {
-  color: blue;
-}
 
 
 
-.fa-github {
+i {
   display: inline-block;
     font: normal normal normal 10px/1 FontAwesome;
     font-size: 50px;
@@ -68,7 +64,6 @@ h2 {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.fa-github:hover {
+i:hover {
   color: gray;
 }
-/* END */
