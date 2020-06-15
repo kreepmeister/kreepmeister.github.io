@@ -34,8 +34,7 @@ h2 {
 }
 i {
     display: inline-block;
-    font: normal normal normal 10px/1 FontAwesome;
-    font-size: inherit;
+    font-size: xxx-large;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -48,7 +47,7 @@ i:hover {
 .fab {
     display: inline-block;
     font: normal normal normal 10px/1 FontAwesome;
-    font-size: inherit;
+    font-size: xxx-large;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -58,7 +57,7 @@ i:hover {
 
 i {
     display: inline-block;
-    font-size: -webkit-xxx-large;
+    font-size: xxx-large;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
